@@ -21,3 +21,7 @@
  * If you score 10 points in a single throw, you score a strike or 'X'
  * Strikes are scored as follows - 10 points + the next two rolls
  */
+
+ const sum = (a, b) => a + b;
+
+ module.exports = sum;
