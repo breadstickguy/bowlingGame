@@ -1,0 +1,22 @@
+{
+  "name": "bowlinggame",
+  "version": "1.0.0",
+  "description": "a package to track bowling game scores",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [
+    "bowling",
+    "coding",
+    "challenge",
+    "javascript",
+    "tdd"
+  ],
+  "author": "breadstickguy",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "jest": "^25.3.0"
+  }
+}
