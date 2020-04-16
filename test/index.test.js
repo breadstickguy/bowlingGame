@@ -32,11 +32,13 @@ describe('Bowling Library - index.js', () => {
         });
         it('should prevent more than 10 pins from being scored per frame', () => {
             const game = new Game();
-            expect(() => game.addFrame(6,6)).toThrow();
+            expect(() => game.addFrame(6,6)).toThrowError(new Error(`You can't have more than 10 pins in a frame!`));
+            expect(game.frames.length).toEqual(0);
         });
         it('should require two rolls to be passed in', () => {
             const game = new Game();
-            expect(() => game.addFrame(6)).toThrow();
+            expect(() => game.addFrame(6)).toThrowError(new Error(`You must include two rolls!`));
+            expect(game.frames.length).toEqual(0);
         });
         it('should not accept more than 10 frames', () => {
             const game = new Game();
@@ -46,6 +48,7 @@ describe('Bowling Library - index.js', () => {
         it('should only accept numbers, X or /', () => {
             const game = new Game();
             expect(() => game.addFrame('bacon')).toThrow();
+            expect(game.frames.length).toEqual(0);
         });
     });
 });

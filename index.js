@@ -29,4 +29,14 @@ class Game {
     }
 }
 
+Game.prototype.addFrame = function(a, b) {
+    if(a + b > 10) {
+        throw new Error(`You can't have more than 10 pins in a frame!`);
+    }
+    if(a === undefined || b === undefined) {
+        throw new Error(`You must include two rolls!`); 
+    }
+    this.frames.push([a,b]);
+}
+
 module.exports = Game;
