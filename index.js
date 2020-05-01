@@ -29,14 +29,32 @@ class Game {
     }
 }
 
-Game.prototype.addFrame = function(a, b) {
+Game.prototype.addFrame = function(a, b, c) {
     if(a + b > 10) {
         throw new Error(`You can't have more than 10 pins in a frame!`);
     }
     if(a === undefined || b === undefined) {
         throw new Error(`You must include two rolls!`); 
     }
-    this.frames.push([a,b]);
+    if(this.frames.length === 10) {
+        throw new Error(`You can't have more than 10 frames`);
+    }
+    if(this.frames.length === 9) {
+        this.addTenthFrame(a, b, c);
+    }
+    if(this.pinChecker(a, b)){
+        this.frames.push([a,b]);
+    }
+}
+
+Game.prototype.addTenthFrame = function(a, b, c) {
+    if(this.pinChecker(a, b, c)){
+        this.frames.push([a, b, c]);
+    }
+}
+
+Game.prototype.pinChecker = function(pin) {
+    return !!pin.toString().match(/\b[0-9]\b|[X]|\//);
 }
 
 module.exports = Game;
