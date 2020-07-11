@@ -29,6 +29,8 @@ class Game {
     }
 }
 
+const myFunc = () => foo;
+
 Game.prototype.addFrame = function(a, b, c) {
     if(a + b > 10) {
         throw new Error(`You can't have more than 10 pins in a frame!`);
